@@ -19,16 +19,17 @@ export const getPosts = async (req, res) => {
     });
 
     // setTimeout(() => {
-    res.status(200).json(posts);
+    return res.status(200).json(posts);
     // }, 3000);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to get posts" });
+    return res.status(500).json({ message: "Failed to get posts" });
   }
 };
 
 export const getPost = async (req, res) => {
   const id = req.params.id;
+  
   try {
     const post = await prisma.post.findUnique({
       where: { id },
@@ -43,11 +44,20 @@ export const getPost = async (req, res) => {
       },
     });
 
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
     const token = req.cookies?.token;
 
     if (token) {
       jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
-        if (!err) {
+        if (err) {
+          console.log('Token verification failed:', err);
+          return res.status(403).json({ message: "Token is not valid" });
+        }
+
+        try {
           const saved = await prisma.savedPost.findUnique({
             where: {
               userId_postId: {
@@ -56,16 +66,31 @@ export const getPost = async (req, res) => {
               },
             },
           });
-          res.status(200).json({ ...post, isSaved: saved ? true : false });
+
+          if (res.headersSent) return; // Ensure no further responses are sent
+          
+          return res.status(200).json({ ...post, isSaved: saved ? true : false });
+        } catch (error) {
+          console.error('Error fetching saved status:', error);
+          if (!res.headersSent) {
+            return res.status(500).json({ message: "Failed to get post status" });
+          }
         }
       });
+    } else {
+      // No token provided, just send the post without saved status
+      if (res.headersSent) return; // Ensure no further responses are sent
+      
+      return res.status(200).json({ ...post, isSaved: false });
     }
-    res.status(200).json({ ...post, isSaved: false });
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Failed to get post" });
+    console.error('Error fetching post:', err);
+    if (!res.headersSent) {
+      return res.status(500).json({ message: "Failed to get post" });
+    }
   }
 };
+
 
 export const addPost = async (req, res) => {
   const body = req.body;
