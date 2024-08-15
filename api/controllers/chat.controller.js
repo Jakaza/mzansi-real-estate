@@ -52,8 +52,11 @@ export const getChat = async (req, res) => {
             createdAt: "asc",
           },
         },
+        users: true,
       },
     });
+
+    console.log("receiver", receiver);
 
     await prisma.chat.update({
       where: {
@@ -65,7 +68,10 @@ export const getChat = async (req, res) => {
         },
       },
     });
-    res.status(200).json(chat);
+    res.status(200).json({
+      ...chat,
+      receiver, // Add receiver details to the response
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get chat!" });
