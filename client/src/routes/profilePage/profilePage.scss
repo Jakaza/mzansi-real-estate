@@ -72,6 +72,35 @@
       }
     }
   }
+
+  .details::-webkit-scrollbar {
+    width: 6px;
+    /* Width of the scrollbar */
+}
+
+.details::-webkit-scrollbar-track {
+    background: #ffffff;
+    /* Background color of the track */
+    border-radius: 8px;
+    /* Rounded corners of the track */
+}
+
+.details::-webkit-scrollbar-thumb {
+    background: #888;
+    background: #f1f1f1;
+    /* Color of the scrollbar thumb */
+    border-radius: 8px;
+    /* Rounded corners of the thumb */
+}
+
+.details::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    background: #f1f1f1;
+    /* Color of the scrollbar thumb when hovered */
+}
+
+
+
   .chatContainer {
     flex: 2;
     background-color: #fcf5f3;
