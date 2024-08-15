@@ -74,6 +74,10 @@ export const getChat = async (req, res) => {
 
 export const addChat = async (req, res) => {
   const tokenUserId = req.userId;
+
+  console.log("ME ID : ", tokenUserId);
+  console.log("HIM ID : ", req.body.receiverId);
+
   try {
     const newChat = await prisma.chat.create({
       data: {
@@ -90,7 +94,6 @@ export const addChat = async (req, res) => {
 export const readChat = async (req, res) => {
   const tokenUserId = req.userId;
 
-  
   try {
     const chat = await prisma.chat.update({
       where: {

@@ -51,6 +51,11 @@ function App() {
           loader: profilePageLoader
         },
         {
+          path: "/profile/:chatId",
+          element: <ProfilePage />,
+          loader: profilePageLoader
+        },
+        {
           path: "/profile/update",
           element: <ProfileUpdatePage />,
         },

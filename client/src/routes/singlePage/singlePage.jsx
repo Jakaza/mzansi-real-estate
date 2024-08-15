@@ -27,6 +27,20 @@ function SinglePage() {
     }
   };
 
+
+  const handleStartChat = async () => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
+    try {
+      const response = await apiRequest.post("/chats", { receiverId: post.id });
+      navigate(`/profile/${response.data.id}`); // Adjust route based on your implementation
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="singlePage">
       <div className="details">
@@ -139,7 +153,7 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button>
+            <button onClick={handleStartChat} >
               <img src="/chat.png" alt="" />
               Send a Message
             </button>
