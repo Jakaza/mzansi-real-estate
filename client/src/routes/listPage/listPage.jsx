@@ -8,9 +8,6 @@ import { Suspense } from "react";
 function ListPage() {
   const data = useLoaderData();
 
-  console.log(data.postResponse);
-  
-
   return (
     <div className="listPage">
       <div className="listContainer">
@@ -36,7 +33,7 @@ function ListPage() {
             resolve={data.postResponse}
             errorElement={<p>Error loading posts!</p>}
           >
-            {(postResponse) => <Map items={postResponse.data} />}
+            {(postResponse) =>  <Map items={postResponse.data} />}
           </Await>
         </Suspense>
       </div>
