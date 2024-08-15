@@ -3,13 +3,22 @@ import "./map.scss";
 import "leaflet/dist/leaflet.css";
 import Pin from "../pin/Pin";
 
+
+const position = [-26.2041, 28.0473];
 function Map({ items }) {
+
+
+  console.log(items);
+  
+
+
+  
   return (
     <MapContainer
       center={
         items.length === 1
           ? [items[0].latitude, items[0].longitude]
-          : [52.4797, -1.90269]
+          : position
       }
       zoom={7}
       scrollWheelZoom={false}
