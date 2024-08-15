@@ -14,6 +14,12 @@ app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+app.get("/production", (req ,res) => {
+
+  res.json("it has been successfully deployed")
+  
+})
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
