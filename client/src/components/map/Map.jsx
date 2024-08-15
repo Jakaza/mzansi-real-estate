@@ -7,12 +7,6 @@ import Pin from "../pin/Pin";
 const position = [-26.2041, 28.0473];
 function Map({ items }) {
 
-
-  console.log(items);
-  
-
-
-  
   return (
     <MapContainer
       center={
