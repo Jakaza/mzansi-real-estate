@@ -117,6 +117,33 @@
         }
       }
     }
+
+    .center::-webkit-scrollbar {
+      width: 6px;
+      /* Width of the scrollbar */
+  }
+  
+  .center::-webkit-scrollbar-track {
+      background: #ffffff;
+      /* Background color of the track */
+      border-radius: 8px;
+      /* Rounded corners of the track */
+  }
+  
+  .center::-webkit-scrollbar-thumb {
+      background: #888;
+      background: #f1f1f1;
+      /* Color of the scrollbar thumb */
+      border-radius: 8px;
+      /* Rounded corners of the thumb */
+  }
+  
+  .center::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      background: #f1f1f1;
+      /* Color of the scrollbar thumb when hovered */
+  }
+
     .bottom {
       border-top: 2px solid #f7c14b85;
       height: 60px;

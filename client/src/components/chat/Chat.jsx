@@ -125,7 +125,7 @@ function Chat({ chats, defaultChatId }) {
         <div className="chatBox">
           <div className="top">
             <div className="user">
-              <img src={chat.receiver?.avatar || "/noavatar.jpg"} alt="" />
+              <img src={receiver?.avatar || "/noavatar.jpg"} alt="" />
               {receiver?.username || "Unknown"}
             </div>
             <span className="close" onClick={() => setChat(null)}>
