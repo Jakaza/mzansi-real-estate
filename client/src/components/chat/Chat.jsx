@@ -107,6 +107,7 @@ function Chat({ chats, defaultChatId }) {
       socket.on("getMessage", (data) => {
 
         if (chat.id === data.chatId) {
+
           setChat((prev) => ({
             ...prev,
             messages: [...prev.messages, data]

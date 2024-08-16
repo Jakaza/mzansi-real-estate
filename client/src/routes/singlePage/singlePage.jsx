@@ -153,10 +153,12 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button onClick={handleStartChat} >
-              <img src="/chat.png" alt="" />
-              Send a Message
-            </button>
+          {currentUser && currentUser.id !== post.userId && (
+              <button onClick={handleStartChat}>
+                <img src="/chat.png" alt="" />
+                Send a Message
+              </button>
+            )}
             <button
               onClick={handleSave}
               style={{
