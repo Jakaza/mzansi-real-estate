@@ -8,6 +8,7 @@ import { useNotificationStore } from "../../lib/notificationStore";
 
 function Chat({ chats, defaultChatId }) {
   const [chat, setChat] = useState(null);
+  const [receiver, setReceiver] = useState(null);
   const { currentUser } = useContext(AuthContext);
   const { socket } = useContext(SocketContext);
 
@@ -15,8 +16,12 @@ function Chat({ chats, defaultChatId }) {
   const decrease = useNotificationStore((state) => state.decrease);
 
   useEffect(() => {
+    const r = getOtherUser();
+    setReceiver(r);
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
+
+  
 
   useEffect(() => {
     if (defaultChatId) {
@@ -28,13 +33,11 @@ function Chat({ chats, defaultChatId }) {
     try {
       const res = await apiRequest(`/chats/${chatId}`);
 
-      console.log(res.data);
-      
+      setChat(res.data);
 
-
-      // if (res.data && res.data.seenBy && !res.data.seenBy.includes(currentUser.id)) {
-      //   decrease();
-      // }
+      if (res.data && res.data.seenBy && !res.data.seenBy.includes(currentUser.id)) {
+        decrease();
+      }
       setChat(res.data);
     } catch (err) {
       console.log(err);
@@ -61,6 +64,12 @@ function Chat({ chats, defaultChatId }) {
     } catch (err) {
       console.log(err);
     }
+  };
+
+
+  const getOtherUser = () => {
+    if (!chat || !chat.users) return null;
+    return chat.users.find((user) => user.id !== currentUser.id);
   };
 
   useEffect(() => {
@@ -117,7 +126,7 @@ function Chat({ chats, defaultChatId }) {
           <div className="top">
             <div className="user">
               <img src={chat.receiver?.avatar || "/noavatar.jpg"} alt="" />
-              {chat.receiver?.username || "Unknown"}
+              {receiver?.username || "Unknown"}
             </div>
             <span className="close" onClick={() => setChat(null)}>
               X
