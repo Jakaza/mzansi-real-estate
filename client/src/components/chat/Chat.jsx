@@ -91,10 +91,6 @@ function Chat({ chats, defaultChatId }) {
 
   useEffect(() => {
 
-
-    console.log("Running after Socket and Chat Change");
-    
-
     const read = async () => {
       try {
         if (chat && chat.id) {
@@ -106,6 +102,7 @@ function Chat({ chats, defaultChatId }) {
     };
 
     if (chat && socket) {
+
 
       socket.on("getMessage", (data) => {
 
