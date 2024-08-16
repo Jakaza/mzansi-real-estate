@@ -1,0 +1,123 @@
+export const apartmentListData = [
+    {
+      title: "Modern Apartment in Pretoria!",
+      latitude: -25.7461,
+      longitude: 28.1881,
+      city: "Pretoria",
+    },
+    {
+      title: "Charming Flat in Sandton!",
+      latitude: -26.1063,
+      longitude: 28.0480,
+      city: "Johannesburg",
+    },
+    {
+      title: "Stylish Apartment in Midrand!",
+      latitude: -25.9908,
+      longitude: 28.1248,
+      city: "Midrand",
+    },
+    {
+      title: "Spacious Flat in Fourways!",
+      latitude: -25.9915,
+      longitude: 28.0175,
+      city: "Johannesburg",
+    },
+    {
+      title: "Comfortable Apartment in Roodepoort!",
+      latitude: -26.1354,
+      longitude: 27.9022,
+      city: "Roodepoort",
+    },
+    {
+      title: "Cozy Flat in Alberton!",
+      latitude: -26.2666,
+      longitude: 28.1242,
+      city: "Alberton",
+    },
+    {
+      title: "Elegant Apartment in Centurion!",
+      latitude: -25.8774,
+      longitude: 28.2064,
+      city: "Centurion",
+    },
+    {
+      title: "Luxury Flat in Johannesburg CBD!",
+      latitude: -26.2041,
+      longitude: 28.0473,
+      city: "Johannesburg",
+    },
+    {
+      title: "Bright Studio in Maboneng Precinct!",
+      latitude: -26.1873,
+      longitude: 28.0287,
+      city: "Johannesburg",
+    },
+    {
+      title: "Chic Loft in Melrose Arch!",
+      latitude: -26.1393,
+      longitude: 28.0714,
+      city: "Johannesburg",
+    },
+    {
+      title: "Trendy Apartment in Greenside!",
+      latitude: -26.1514,
+      longitude: 28.0280,
+      city: "Johannesburg",
+    },
+    {
+      title: "Spacious Duplex in Linden!",
+      latitude: -26.1473,
+      longitude: 27.9930,
+      city: "Johannesburg",
+    },
+    {
+      title: "Modern Penthouse in Rosebank!",
+      latitude: -26.1411,
+      longitude: 28.0433,
+      city: "Johannesburg",
+    },
+    {
+      title: "Family Home in Johannesburg North!",
+      latitude: -26.0123,
+      longitude: 28.0366,
+      city: "Johannesburg",
+    },
+    {
+      title: "Stylish Studio in Craighall Park!",
+      latitude: -26.1275,
+      longitude: 28.0270,
+      city: "Johannesburg",
+    },
+    {
+      title: "Elegant Flat in Parkhurst!",
+      latitude: -26.1455,
+      longitude: 28.0242,
+      city: "Johannesburg",
+    },
+    {
+      title: "Charming Apartment in Sandringham!",
+      latitude: -26.1469,
+      longitude: 28.0744,
+      city: "Johannesburg",
+    },
+    {
+      title: "Contemporary Flat in Bramley!",
+      latitude: -26.1390,
+      longitude: 28.0781,
+      city: "Johannesburg",
+    },
+    {
+      title: "Sunny Apartment in Bryanston!",
+      latitude: -26.0604,
+      longitude: 28.0514,
+      city: "Johannesburg",
+    },
+    {
+      title: "Cozy Flat in Houghton Estate!",
+      latitude: -26.1443,
+      longitude: 28.0489,
+      city: "Johannesburg",
+    },
+  ];
+  
