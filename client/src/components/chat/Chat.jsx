@@ -57,10 +57,14 @@ function Chat({ chats, defaultChatId }) {
         messages: [...prev.messages, res.data]
       }));
       e.target.reset();
+
+
       socket.emit("sendMessage", {
-        receiverId: chat.receiver?.id,
+        receiverId: receiver?.id,
         data: res.data,
       });
+
+      
     } catch (err) {
       console.log(err);
     }
@@ -73,6 +77,24 @@ function Chat({ chats, defaultChatId }) {
   };
 
   useEffect(() => {
+    console.log("Socket:", socket);
+    if (socket) {
+      socket.on("connect", () => {
+        console.log("Socket connected:", socket.id);
+      });
+      return () => {
+        socket.off("connect");
+      };
+    }
+  }, [socket]);
+
+
+  useEffect(() => {
+
+
+    console.log("Running after Socket and Chat Change");
+    
+
     const read = async () => {
       try {
         if (chat && chat.id) {
@@ -84,7 +106,9 @@ function Chat({ chats, defaultChatId }) {
     };
 
     if (chat && socket) {
+
       socket.on("getMessage", (data) => {
+
         if (chat.id === data.chatId) {
           setChat((prev) => ({
             ...prev,
