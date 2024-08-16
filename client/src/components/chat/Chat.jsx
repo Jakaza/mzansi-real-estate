@@ -28,13 +28,13 @@ function Chat({ chats, defaultChatId }) {
     try {
       const res = await apiRequest(`/chats/${chatId}`);
 
-      console.log("res" , res);
+      console.log(res.data);
       
 
 
-      if (res.data && res.data.seenBy && !res.data.seenBy.includes(currentUser.id)) {
-        decrease();
-      }
+      // if (res.data && res.data.seenBy && !res.data.seenBy.includes(currentUser.id)) {
+      //   decrease();
+      // }
       setChat(res.data);
     } catch (err) {
       console.log(err);

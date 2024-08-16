@@ -56,8 +56,6 @@ export const getChat = async (req, res) => {
       },
     });
 
-    console.log("receiver", receiver);
-
     await prisma.chat.update({
       where: {
         id: req.params.id,
@@ -69,8 +67,7 @@ export const getChat = async (req, res) => {
       },
     });
     res.status(200).json({
-      ...chat,
-      receiver, // Add receiver details to the response
+      ...chat
     });
   } catch (err) {
     console.log(err);

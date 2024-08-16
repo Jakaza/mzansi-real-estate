@@ -34,6 +34,10 @@ io.on("connection", (socket) => {
 
   socket.on("sendMessage", ({ receiverId, data }) => {
     const receiver = getUser(receiverId);
+
+    console.log("receiver",  receiver);
+    
+
     io.to(receiver.socketId).emit("getMessage", data);
   });
 
@@ -42,4 +46,6 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen("4001");
+io.listen("4001" , ()=>{
+  console.log("Socket Server Is Running...");
+});
