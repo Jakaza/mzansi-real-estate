@@ -7,6 +7,12 @@ import { SocketContext } from "../../context/SocketContext";
 import { useNotificationStore } from "../../lib/notificationStore";
 
 function Chat({ chats, defaultChatId }) {
+
+
+  console.log(chats);
+  
+
+
   const [chat, setChat] = useState(null);
   const [receiver, setReceiver] = useState(null);
   const { currentUser } = useContext(AuthContext);
@@ -22,7 +28,6 @@ function Chat({ chats, defaultChatId }) {
   }, [chat]);
 
   
-
   useEffect(() => {
     if (defaultChatId) {
       handleOpenChat(defaultChatId);

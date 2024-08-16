@@ -34,8 +34,8 @@ function SinglePage() {
       return;
     }
     try {
-      const response = await apiRequest.post("/chats", { receiverId: post.id });
-      navigate(`/profile/${response.data.id}`); // Adjust route based on your implementation
+      const response = await apiRequest.post("/chats", { receiverId: post.userId });
+      navigate(`/profile/${response.data.id}`); 
     } catch (err) {
       console.log(err);
     }
