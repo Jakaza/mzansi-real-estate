@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -45,6 +47,7 @@
       border: none;
       cursor: pointer;
       background-color: #fece51;
+      background-color: $blue-color;
 
       img {
         width: 24px;

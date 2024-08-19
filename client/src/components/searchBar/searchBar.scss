@@ -1,9 +1,8 @@
 @import "../../responsive.scss";
+@import "../../variables.scss";
 
 .searchBar {
   .type {
-
-
     button {
       padding: 16px 36px;
       border: 1px solid #999;
@@ -61,7 +60,7 @@
         }
       }
 
-      @include sm{
+      @include sm {
         width: auto;
         &:nth-child(2),
         &:nth-child(3) {
@@ -72,9 +71,10 @@
       }
     }
 
-    a{
+    a {
       flex: 1;
       background-color: #fece51;
+      background-color: $blue-color;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -82,12 +82,13 @@
       button {
         border: none;
         cursor: pointer;
-        background-color: #fece51;
-        
-        @include sm{
+        // background-color: #fece51;
+        background-color: $blue-color;
+
+        @include sm {
           padding: 10px;
         }
-        
+
         img {
           width: 24px;
           height: 24px;
