@@ -12,7 +12,7 @@ function Navbar() {
   const fetch = useNotificationStore((state) => state.fetch);
   const number = useNotificationStore((state) => state.number);
 
-  if(currentUser) fetch();
+  if (currentUser) fetch();
 
   return (
     <nav>
@@ -22,9 +22,7 @@ function Navbar() {
           <span>MzansiEstate</span>
         </a>
         <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Contact</a>
-        <a href="/">Agents</a>
+        <a href="/list">All Houses</a>
       </div>
       <div className="right">
         {currentUser ? (
