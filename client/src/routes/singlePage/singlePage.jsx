@@ -27,15 +27,16 @@ function SinglePage() {
     }
   };
 
-
   const handleStartChat = async () => {
     if (!currentUser) {
       navigate("/login");
       return;
     }
     try {
-      const response = await apiRequest.post("/chats", { receiverId: post.userId });
-      navigate(`/profile/${response.data.id}`); 
+      const response = await apiRequest.post("/chats", {
+        receiverId: post.userId,
+      });
+      navigate(`/profile/${response.data.id}`);
     } catch (err) {
       console.log(err);
     }
@@ -63,6 +64,7 @@ function SinglePage() {
             </div>
             <div
               className="bottom"
+              style={{ "--text-color": "blue" }}
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(post.postDetail.desc),
               }}
@@ -153,7 +155,7 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-          {currentUser && currentUser.id !== post.userId && (
+            {currentUser && currentUser.id !== post.userId && (
               <button onClick={handleStartChat}>
                 <img src="/chat.png" alt="" />
                 Send a Message
