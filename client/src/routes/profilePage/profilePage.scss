@@ -1,10 +1,11 @@
 @import "../../responsive.scss";
+@import "../../variables.scss";
 
 .profilePage {
   display: flex;
   height: 100%;
 
-  @include md{
+  @include md {
     flex-direction: column;
     overflow: scroll;
   }
@@ -14,46 +15,48 @@
     overflow-y: scroll;
     padding-bottom: 50px;
 
-    @include md{
-      flex:none;
+    @include md {
+      flex: none;
       height: max-content;
     }
 
-    .wrapper{
+    .wrapper {
       padding-right: 50px;
       display: flex;
       flex-direction: column;
       gap: 50px;
 
-      .title{
+      .title {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        h1{
+        h1 {
           font-weight: 300;
         }
 
-        button{
+        button {
           padding: 12px 24px;
           background-color: #fece51;
+          background-color: $blue-color;
+          border-radius: 5px;
           cursor: pointer;
           border: none;
         }
       }
 
-      .info{
+      .info {
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        span{
+        span {
           display: flex;
           align-items: center;
           gap: 20px;
         }
 
-        button{
+        button {
           width: 100px;
           background-color: teal;
           border: none;
@@ -63,7 +66,7 @@
           border-radius: 5px;
         }
 
-        img{
+        img {
           width: 40px;
           height: 40px;
           border-radius: 50%;
@@ -76,42 +79,40 @@
   .details::-webkit-scrollbar {
     width: 6px;
     /* Width of the scrollbar */
-}
+  }
 
-.details::-webkit-scrollbar-track {
+  .details::-webkit-scrollbar-track {
     background: #ffffff;
     /* Background color of the track */
     border-radius: 8px;
     /* Rounded corners of the track */
-}
+  }
 
-.details::-webkit-scrollbar-thumb {
+  .details::-webkit-scrollbar-thumb {
     background: #888;
     background: #f1f1f1;
     /* Color of the scrollbar thumb */
     border-radius: 8px;
     /* Rounded corners of the thumb */
-}
+  }
 
-.details::-webkit-scrollbar-thumb:hover {
+  .details::-webkit-scrollbar-thumb:hover {
     background: #555;
     background: #f1f1f1;
     /* Color of the scrollbar thumb when hovered */
-}
-
-
+  }
 
   .chatContainer {
     flex: 2;
     background-color: #fcf5f3;
     height: 100%;
 
-    @include md{
-      flex:none;
+    @include md {
+      flex: none;
       height: max-content;
     }
 
-    .wrapper{
+    .wrapper {
       padding: 0px 20px;
       height: 100%;
     }

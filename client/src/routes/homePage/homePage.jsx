@@ -4,8 +4,7 @@ import "./homePage.scss";
 import { AuthContext } from "../../context/AuthContext";
 
 function HomePage() {
-
-  const {currentUser} = useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="homePage">
@@ -13,10 +12,12 @@ function HomePage() {
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            explicabo suscipit cum eius, iure est nulla animi consequatur
-            facilis id pariatur fugit quos laudantium temporibus dolor ea
-            repellat provident impedit!
+            If you are looking to rent property in South Africa, click on the
+            towns below to filter for our extensive portfolio of the latest
+            houses, townhouses, apartments, flats, clusters and commercial
+            property to rent in South Africa. You can also connect with a local
+            rental estate agent to make an informed decision on the perfect area
+            to suit your rental needs.
           </p>
           <SearchBar />
           <div className="boxes">
@@ -25,7 +26,7 @@ function HomePage() {
               <h2>Years of Experience</h2>
             </div>
             <div className="box">
-              <h1>200</h1>
+              <h1>200+</h1>
               <h2>Award Gained</h2>
             </div>
             <div className="box">

@@ -2,7 +2,13 @@ import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import "./profilePage.scss";
 import apiRequest from "../../lib/apiRequest";
-import { Await, Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import {
+  Await,
+  Link,
+  useLoaderData,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { Suspense, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -79,15 +85,8 @@ function ProfilePage() {
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-
-
               {(chatResponse) => (
-
-            
-                <Chat
-                  chats={chatResponse.data}
-                  defaultChatId={chatId}
-                />
+                <Chat chats={chatResponse.data} defaultChatId={chatId} />
               )}
             </Await>
           </Suspense>
