@@ -22,7 +22,7 @@ function Navbar() {
           <span>MzansiEstate</span>
         </a>
         <a href="/">Home</a>
-        <a href="/list">All Houses</a>
+        <a href="/list">View All Properties</a>
       </div>
       <div className="right">
         {currentUser ? (
