@@ -39,7 +39,12 @@ io.on("connection", (socket) => {
 
   socket.on("sendMessage", ({ receiverId, data }) => {
     const receiver = getUser(receiverId);
-    io.to(receiver.socketId).emit("getMessage", data);
+  
+    if (receiver) {
+      io.to(receiver.socketId).emit("getMessage", data);
+    } else {
+      console.log("User is offline");
+    }
   });
 
   socket.on("disconnect", () => {
