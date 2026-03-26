@@ -12,9 +12,12 @@ import messageRoute from "./routes/message.route.js";
 dotenv.config();
 const app = express();
 
+// ⚡ CORS fix
 app.use(cors({
-  origin: "*"
+  origin: "https://mzansi-real-estate-git-main-earnclicks-projects.vercel.app",
+  credentials: true
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
