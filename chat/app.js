@@ -2,9 +2,11 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: "*",
+    origin: "https://mzansi-real-estate-git-main-earnclicks-projects.vercel.app",
+    methods: ["GET", "POST"]
   },
 });
+
 
 let onlineUser = [];
 
@@ -32,14 +34,17 @@ io.on("connection", (socket) => {
     console.log(onlineUser);
   });
 
-  socket.on("sendMessage", ({ receiverId, data }) => {
-    const receiver = getUser(receiverId);
+socket.on("sendMessage", ({ receiverId, data }) => {
+  const receiver = getUser(receiverId);
 
-    console.log("receiver",  receiver);
-    
+  console.log("receiver", receiver);
 
+  if (receiver) {
     io.to(receiver.socketId).emit("getMessage", data);
-  });
+  } else {
+    console.log("User is offline");
+  }
+});
 
   socket.on("disconnect", () => {
     removeUser(socket.id);
