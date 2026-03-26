@@ -2,8 +2,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: "https://mzansi-real-estate-git-main-earnclicks-projects.vercel.app",
-    methods: ["GET", "POST"]
+    origin: "http://localhost:5173",
   },
 });
 
