@@ -14,7 +14,7 @@ const app = express();
 
 // ⚡ CORS fix
 app.use(cors({
-  origin: "https://mzansi-real-estate-git-main-earnclicks-projects.vercel.app",
+  origin: "http://localhost:5173",
   credentials: true
 }));
 
